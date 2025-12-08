@@ -120,6 +120,7 @@ Workout Buddy is a supportive fitness tool, not a medical advisor.
 - Only provides general workout suggestions  
 - Users should stop if they feel pain or dizziness  
 - No personal health data is collected or stored  
+- User should use discretion and not follow blindly
 
 ---
 
