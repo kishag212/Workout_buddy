@@ -1,14 +1,14 @@
 # main.py
 
-from conversation import (
+from src.conversation import (
     ask_fitness_level,
     ask_minutes,
     ask_goal,
     ask_joint_issues,
 )
-from exercises_data import filter_exercises
-from workout_logic import build_workout_routine
-from llm_client import generate_workout_text
+from src.exercises_data import filter_exercises
+from src.workout_logic import build_workout_routine
+from src.llm_client import generate_workout_text
 
 
 def main():

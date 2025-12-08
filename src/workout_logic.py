@@ -1,7 +1,7 @@
 # workout_logic.py
 
 from typing import List
-from exercises_data import Exercise
+from src.exercises_data import Exercise
 
 def build_workout_routine(
     minutes: int,

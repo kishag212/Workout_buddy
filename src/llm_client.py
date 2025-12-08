@@ -5,7 +5,7 @@ import json
 from typing import List
 from dotenv import load_dotenv
 from openai import OpenAI
-from exercises_data import Exercise
+from src.exercises_data import Exercise
 
 load_dotenv()
 
