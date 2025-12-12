@@ -13,7 +13,8 @@ from src.llm_client import generate_workout_text
 
 def main():
     print("👋 Welcome to Workout Buddy!")
-    print("I'll help you build a short, safe home workout.\n")
+    print("I'll help you get right for your next date/vacation. Let's Go!!!! 💪🏾🌴✈️\n")
+
 
     fitness_level = ask_fitness_level()
     minutes = ask_minutes()

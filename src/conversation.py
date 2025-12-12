@@ -1,65 +1,79 @@
-# conversation.py
+# -------------------------------
+# Quit Logic Helper
+# -------------------------------
+def check_quit(user_input):
+    if user_input.lower() in ["quit", "exit", "q"]:
+        print("\n👋 Thanks for using Workout Buddy! Come back soon! 💪🏾🌴✈️")
+        exit()
 
+
+# -------------------------------
+# Ask Fitness Level
+# -------------------------------
 def ask_fitness_level():
-    print("What is your fitness level?")
-    print("1 = beginner")
-    print("2 = intermediate")
-    print("3 = advanced")
+    options = ["beginner", "intermediate", "advanced"]
 
-    choice = input("> ").strip()
+    while True:
+        level = input(
+            "What is your fitness level? (beginner / intermediate / advanced or 'quit'): "
+        ).lower()
 
-    # Default to beginner if nothing is typed
-    if not choice:
-        return "beginner"
+        check_quit(level)
 
-    # Ask again if user types something wrong
-    while choice not in ["1", "2", "3"]:
-        print("Please type 1, 2, or 3.")
-        print("1 = beginner, 2 = intermediate, 3 = advanced")
-        choice = input("> ").strip()
-        if not choice:
-            return "beginner"
+        if level in options:
+            return level
 
-    # Convert number to fitness level
-    level_map = {
-        "1": "beginner",
-        "2": "intermediate",
-        "3": "advanced"
-    }
-
-    return level_map[choice]
+        print("❗ I don’t understand — please stick to the options.\n")
 
 
+# -------------------------------
+# Ask Minutes
+# -------------------------------
 def ask_minutes():
-    print("How many minutes do you have?")
-    print("Options: 10, 20, 30")
-    
-    raw = input("> ").strip()
-    try:
-        mins = int(raw)
-    except ValueError:
-        mins = 20
+    while True:
+        minutes = input("How many minutes do you have? (or 'quit'): ")
 
-    if mins not in [10, 20, 30]:
-        mins = 20
+        check_quit(minutes)
 
-    return mins
+        if minutes.isdigit():
+            return int(minutes)
+
+        print("❗ Please enter a number only (example: 10, 20, 30).\n")
 
 
+# -------------------------------
+# Ask Goal
+# -------------------------------
 def ask_goal():
-    goal = input("What's your goal for today? (e.g., get moving, build strength): ").strip()
-    if not goal:
-        goal = "get moving and feel better"
-    return goal
+    options = ["weight loss", "tone", "strength", "energy"]
+
+    while True:
+        goal = input(
+            "What is your goal? (weight loss / tone / strength / energy or 'quit'): "
+        ).lower()
+
+        check_quit(goal)
+
+        if goal in options:
+            return goal
+
+        print("❗ I don't understand — stick to the options.\n")
 
 
+# -------------------------------
+# Ask Joint Issues
+# -------------------------------
 def ask_joint_issues():
-    issues = input(
-        "Any joints we should be gentle with? (e.g., knees, back, shoulders). "
-        "Type a list separated by commas, or press Enter if none: "
-    ).strip().lower()
+    options = ["knees", "back", "shoulders", "none"]
 
-    if not issues:
-        return []
+    while True:
+        joints = input(
+            "Any joint issues? (knees / back / shoulders / none or 'quit'): "
+        ).lower()
 
-    return [i.strip() for i in issues.split(",")]
+        check_quit(joints)
+
+        if joints in options:
+            return joints
+
+        print("❗ I don’t understand — please stick to the options.\n")
