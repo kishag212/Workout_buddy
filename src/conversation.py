@@ -22,6 +22,8 @@ def ask_fitness_level():
 
         if level in options:
             return level
+       # print("Invalid input")
+
 
         print("❗ I don’t understand — please stick to the options.\n")
 

@@ -10,7 +10,6 @@ It guides users through a short conversation to create a safe workout plan based
 
 ## 📁 Project Structure
 
-```
 Workout_buddy/
 │  README.md
 │  .gitignore
@@ -31,7 +30,6 @@ Workout_buddy/
 │
 └─docs/
     integration-checklist.md
-```
 
 ---
 
@@ -48,7 +46,7 @@ Workout_buddy/
 ### Sprint 1 Expands the Prototype
 - Improved CLI experience and input validation
 - Debug logging added to `choose_difficulty()`
-- Integration tests covering end-to-end CLI flow
+- End-to-end integration testing
 - UX polish with clearer help text and error messages
 - Demo preparation and documentation
 
@@ -57,51 +55,40 @@ Workout_buddy/
 ## 🚀 Setup Instructions
 
 ### 1) Clone the Repository
-```bash
-git clone https://github.com/kishag212/Workout_buddy.git
+git clone https://github.com/kishag212/Workout_buddy.git  
 cd Workout_buddy
-```
 
 ### 2) Create & Activate a Virtual Environment
 
-**Windows (PowerShell)**
-```bash
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
+Windows (PowerShell)
+python -m venv .venv  
+.\.venv\Scripts\Activate.ps1  
 
-**Mac / Linux**
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
+Mac / Linux
+python3 -m venv .venv  
+source .venv/bin/activate  
 
 ### 3) Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+pip install -r requirements.txt  
 
 ---
 
 ## ⚡ Quick Start (Beginner-Friendly)
 
-### Run the Workout Buddy CLI
-```bash
-python -m src.main
-```
+Run the Workout Buddy CLI
+python -m src.main  
 
-### Example Interaction
-```text
-👋 Welcome to Workout Buddy!
+Example Interaction
+
+👋 Welcome to Workout Buddy!  
 I'll help you get right for your next date/vacation. Let's Go!!!! 💪🏾🌴✈️
 
-What is your fitness level? (beginner / intermediate / advanced or 'quit'): beginner
-How many minutes do you have? (10 / 20 / 30 or 'quit'): 20
-What is your goal? (weight loss / tone / strength / energy or 'quit'): energy
-Any joint issues? (knees / back / shoulders / none or 'quit'): none
-```
+What is your fitness level? (beginner / intermediate / advanced or 'quit'): beginner  
+How many minutes do you have? (10 / 20 / 30 or 'quit'): 20  
+What is your goal? (weight loss / tone / strength / energy or 'quit'): energy  
+Any joint issues? (knees / back / shoulders / none or 'quit'): none  
 
-### Output
+Output
 - A safe, beginner-friendly workout routine
 - A supportive coaching message
 - Clear guidance with no medical advice
@@ -110,9 +97,9 @@ Any joint issues? (knees / back / shoulders / none or 'quit'): none
 
 ## ▶️ Run the Streamlit App (Optional UI)
 
-```bash
-streamlit run streamlit_app.py
-```
+streamlit run streamlit_app.py  
+
+Note: The Streamlit UI is planned for a future sprint and may not be present in all branches.
 
 ---
 
@@ -120,13 +107,12 @@ streamlit run streamlit_app.py
 
 Workout Buddy uses a simple rule-based system:
 
-| Minutes | Difficulty |
-|--------|------------|
-| 0–9 | beginner |
-| 10–19 | intermediate |
-| ≥ 20 | user-selected level |
+Minutes | Difficulty  
+0–9     | beginner  
+10–19   | intermediate  
+≥ 20    | user-selected level  
 
-### Safe Defaults
+Safe Defaults
 - Invalid minutes → beginner
 - Invalid fitness level → beginner
 
@@ -134,25 +120,63 @@ Workout Buddy uses a simple rule-based system:
 
 ## 🐞 Sprint 1 Debug Logging
 
-A debug log prints whenever the rule runs:
-```text
 [DEBUG] choose_difficulty called with minutes={minutes} and level={level}
-```
 
 This supports transparency and bug-fix verification.
 
 ---
 
+## 🔗 Integration Testing
+
+Sprint 1 includes end-to-end integration testing to validate the full CLI flow.
+
+- Tests user input → rule evaluation → workout output
+- Ensures components work together correctly
+- All integration tests are passing
+
+Run integration tests:
+python -m pytest tests/test_integration_main.py -v
+
+---
+
+## ✨ UX Improvements (Sprint 1)
+
+Error Message Improvements
+
+Before  
+Invalid input  
+
+After  
+Invalid input. Please enter one of the listed options (example: beginner).
+
+Before  
+Please try again  
+
+After  
+I didn’t understand that. Please choose 10, 20, or 30 minutes.
+
+Help text throughout the CLI was updated to include clear options and examples for beginner users.
+
+---
+
 ## 🧪 Running Tests
 
-```bash
-python -m pytest -v
-```
+python -m pytest -v  
 
-**Expected Output**
-```text
-2 passed
-```
+Expected Output  
+All tests passed
+
+---
+
+## 🧼 Clean Environment Test
+
+The application was tested in a clean virtual environment using only the documented setup steps.
+
+- Fresh virtual environment created
+- Dependencies installed from requirements.txt
+- CLI and tests ran successfully
+
+Any blockers encountered are documented in the integration checklist.
 
 ---
 
@@ -170,11 +194,10 @@ Workout Buddy is a wellness support tool, not a medical advisor.
 
 ## 👥 Team Members
 
-| Name | Role |
-|------|------|
-| **Kisha Wright** | Exercise Data & Workout Logic |
-| **Andre** | LLM Integration |
-| **Anthony** | Conversation Flow & App Orchestration |
+Name | Role  
+Kisha Wright | Exercise Data & Workout Logic  
+Andre | LLM Integration  
+Anthony | Conversation Flow & App Orchestration  
 
 ---
 
@@ -195,24 +218,21 @@ https://github.com/kishag212/Workout_buddy/pull/16
 
 ## 🗂 Issues & Pull Request Workflow
 
-### Issues
-- Must include an **owner**
-- Must include a **due date**
+Issues
+- Must include an owner
+- Must include a due date
 
-### Pull Requests
-- Created from a feature or bugfix branch  
+Pull Requests
+- Created from a feature or bugfix branch
 - Must reference an Issue:
-```text
+
 Closes #ISSUE_NUMBER
-```
 
 ---
 
 ## 📝 Contribution Guide
 
-```bash
-git checkout -b feature/my-change
-git push -u origin feature/my-change
-```
+git checkout -b feature/my-change  
+git push -u origin feature/my-change  
 
 Open a Pull Request, assign a reviewer, reference an issue, and merge after approval.
